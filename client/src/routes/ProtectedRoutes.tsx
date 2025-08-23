@@ -1,9 +1,9 @@
-import  { useEffect } from "react";
+import { useEffect } from "react";
 import { useAuthContext } from "../context/AuthProvider";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const ProtectedRoutes = () => {
-  const { auth } = useAuthContext();
+  const { auth, loading } = useAuthContext();
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname;
@@ -12,12 +12,16 @@ const ProtectedRoutes = () => {
 
   // We can still scale this if ever we have an admin and a user role
   useEffect(() => {
+    if (loading) return;
+
     if (auth.isAuthenticated && userRoutes.includes(path)) {
       navigate("/homepage");
     } else {
-      navigate("/")
+      navigate("/");
     }
   }, [auth]);
+
+  if (loading) return;
 
   return auth.isAuthenticated ? <Outlet /> : null;
 };

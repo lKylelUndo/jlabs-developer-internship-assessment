@@ -15,3 +15,17 @@ export type ChangePaswordFormTypes = {
   newPassword: string;
   confirmPassword: string;
 };
+
+export type AuthType = {
+  userId: string | null;
+  name: string | null;
+  email: string | null;
+  password?: string | null;
+  isAuthenticated: boolean | null;
+};
+
+export type AuthContextType = {
+  auth: AuthType;
+  setAuth: React.Dispatch<React.SetStateAction<AuthType>>;
+  loading: boolean;
+};

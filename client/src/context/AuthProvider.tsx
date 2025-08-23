@@ -1,17 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-
-type AuthType = {
-  userId: string | null;
-  name: string | null;
-  email: string | null;
-  password?: string | null;
-  isAuthenticated: boolean | null;
-};
-
-type AuthContextType = {
-  auth: AuthType;
-  setAuth: React.Dispatch<React.SetStateAction<AuthType>>;
-};
+import type { AuthContextType, AuthType } from "../types/auth.types";
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
@@ -22,6 +10,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     email: "",
     isAuthenticated: false,
   });
+
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const verifyUser = async () => {
@@ -54,6 +44,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         }
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false)
       }
     };
 
@@ -61,7 +53,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ auth, setAuth }}>
+    <AuthContext.Provider value={{ auth, setAuth, loading }}>
       {children}
     </AuthContext.Provider>
   );
