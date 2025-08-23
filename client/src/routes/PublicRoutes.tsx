@@ -10,6 +10,9 @@ const PublicRoutes = () => {
 
     navigate(auth.isAuthenticated ? "/homepage" : "/");
   }, [auth]);
+
+  if (loading) return;
+
   return !auth.isAuthenticated ? <Outlet /> : null;
 };
 
