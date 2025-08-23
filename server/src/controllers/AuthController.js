@@ -1,5 +1,5 @@
 import { matchedData, validationResult } from "express-validator";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import User from "../models/User.js";
 import { v4 as uuidv4 } from "uuid";
 import { comparePassword } from "../utils/comparePassword.js";
