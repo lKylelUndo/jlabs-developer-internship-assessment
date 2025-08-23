@@ -34,14 +34,14 @@ const MainLayout = () => {
 
   return (
     <>
-      <div className="navbar shadow-sm" data-theme="sunset">
+      <div className="bg-slate-900 p-4">
         <div className="w-3/4 mx-auto flex justify-between items-center">
           <a className="text-xl text-gray-200">Simple Auth</a>
 
           <div>
             {auth.isAuthenticated && (
               <>
-                <button className="btn btn-link" onClick={handleLogout}>
+                <button className="text-gray-100 hover:underline" onClick={handleLogout}>
                   Logout
                 </button>
               </>

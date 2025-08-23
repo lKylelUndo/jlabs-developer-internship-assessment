@@ -28,7 +28,7 @@ const RegisterForm = ({
               name="name"
               onChange={handleChange}
               value={formData.name}
-              className="h-10 border border-gray-300 rounded"
+              className="h-10 border border-gray-300 rounded px-2"
             />
             {errors.name && (
               <p className="text-red-600 text-sm mt-1"> 🚫 {errors.name}</p>
@@ -46,7 +46,7 @@ const RegisterForm = ({
               name="email"
               onChange={handleChange}
               value={formData.email}
-              className="h-10 border border-gray-300 rounded"
+              className="h-10 border border-gray-300 rounded px-2"
             />
             {errors.email && (
               <p className="text-red-600 text-sm mt-1"> 🚫 {errors.email}</p>
@@ -64,7 +64,7 @@ const RegisterForm = ({
               name="password"
               onChange={handleChange}
               value={formData.password}
-              className="h-10 border border-gray-300 rounded"
+              className="h-10 border border-gray-300 rounded px-2"
             />
             {errors.password && (
               <p className="text-red-600 text-sm mt-1"> 🚫 {errors.password}</p>
@@ -85,7 +85,7 @@ const RegisterForm = ({
               name="confirmPassword"
               onChange={handleChange}
               value={formData.confirmPassword}
-              className="h-10 border border-gray-300 rounded"
+              className="h-10 border border-gray-300 rounded px-2"
             />
             {errors.confirmPassword && (
               <p className="text-red-600 text-sm mt-1">

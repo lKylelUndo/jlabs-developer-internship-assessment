@@ -68,7 +68,7 @@ const ChangePasswordForm = ({
             onChange={handleChange}
           />
         </div>
-        <button type="submit" data-theme="silk" className="btn btn-neutral">
+        <button type="submit" className="bg-slate-950 text-gray-100 p-3 rounded text-sm hover:opacity-50 transition">
           Update Password
         </button>
       </form>
